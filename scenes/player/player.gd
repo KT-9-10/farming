@@ -37,7 +37,7 @@ func get_input() -> void:
 		tool_state_machine.travel(tool_connection[current_tool])
 		$AnimationTree.set("parameters/OneShot/request", AnimationNodeOneShot.ONE_SHOT_REQUEST_FIRE)
 		can_move = false
-		if current_tool == Tools.HOE:
+		if current_tool in [Tools.HOE, Tools.WATER]:
 			await $AnimationTree.animation_finished
 			tool_use.emit(current_tool, position + last_direction * tool_direction_offset + tool_direction_offset_y)
 	
