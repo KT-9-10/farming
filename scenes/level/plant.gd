@@ -1,6 +1,7 @@
 extends StaticBody2D
 
-var grid_pos: Vector2
+var grid_pos: Vector2i
+var age: float = 0
 var max_age: int
 var grow_speed: float
 const plant_data = {
@@ -16,7 +17,7 @@ const plant_data = {
 	},
 	Global.Seeds.PUMPKIN: {
 		"texture": preload("res://graphics/plants/pumpkin.png"),
-		"max age": 4,
+		"max age": 3,
 		"grow speed": 0.5,
 	},
 }
@@ -27,3 +28,9 @@ func setup(seed_enum: Global.Seeds, grid_position: Vector2i):
 	max_age = plant_data[seed_enum]["max age"]
 	grow_speed = plant_data[seed_enum]["grow speed"]
 	grid_pos = grid_position
+
+
+func grow(watered: bool):
+	if age < max_age and watered:
+		age = min(age + grow_speed, max_age)
+		$Sprite2D.frame = floor(age)

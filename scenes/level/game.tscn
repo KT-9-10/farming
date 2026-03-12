@@ -929,5 +929,16 @@ position = Vector2(121, -74)
 [node name="Tree13" parent="Objects/Trees" unique_id=1319556537 instance=ExtResource("5_qrcxb")]
 position = Vector2(-144, -116)
 
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1049880288]
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer" unique_id=779608826]
+modulate = Color(1, 1, 1, 0)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
 [connection signal="seed_use" from="Objects/Player" to="." method="_on_player_seed_use"]
 [connection signal="tool_use" from="Objects/Player" to="." method="_on_player_tool_use"]
