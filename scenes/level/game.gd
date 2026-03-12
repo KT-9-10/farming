@@ -39,8 +39,8 @@ func _on_player_seed_use(seed_enum: int, pos: Vector2) -> void:
 func day_switch() -> void:
 	var tween = create_tween()
 	tween.tween_property($CanvasLayer/ColorRect, "modulate:a", 1.0, 1.0)
-	tween.tween_callback(level_reset)
-	tween.tween_interval(1.0)
+	tween.tween_interval(1.0) # 次のTweenの実行まで感覚をあける
+	tween.tween_callback(level_reset) # Tweenの途中で関数を呼ぶ
 	tween.tween_property($CanvasLayer/ColorRect, "modulate:a", 0.0, 1.0)
 
 
